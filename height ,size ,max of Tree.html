@@ -1,0 +1,165 @@
+// height of the Tree
+
+//import java.util.*;
+//
+//class Node{
+//    Node left,right;
+//    int data;
+//
+//    public Node(int data)
+//    {
+//        this.data=data;
+//    }
+//}
+//
+// public class Tree_ {
+//    static Scanner sc =new Scanner(System.in);
+//
+//    static Node createTree()
+//    {
+//        Node root =null;
+//        System.out.println("enter the data");
+//        int data = sc.nextInt();
+//
+//        if(data==-1)
+//        {
+//            return null;
+//        }
+//        root = new Node(data);
+//        System.out.println("enter the left data "+data);
+//        root.left = createTree();
+//
+//        System.out.println("enter the right data "+data);
+//        root.right = createTree();
+//
+//        System.out.println("enter the right data "+data);
+//        root.right = createTree();
+//        return root;
+//    }
+//    static int height(Node root)
+//    {
+//        if(root==null)
+//        {
+//            return 0;
+//        }
+//        int leftHeight = height(root.left);
+//        int rightHeight =height(root.right);
+//
+//        return 1+Math.max(leftHeight,rightHeight);
+//    }
+//
+//     public static void main(String[] args)
+//     {
+//         Node root = createTree();
+//         int result = height(root);
+//         System.out.println("result"+result);
+//
+//     }
+//}
+// size of binary tree : how manu nodes present in a tree
+
+//import java.util.*;
+//
+//  class Node{
+//      Node left,right;
+//      int data;
+//
+//      public Node(int data)
+//      {
+//          this.data=data;
+//      }
+//  }
+//  public class Tree_ {
+//      static Scanner sc = new Scanner(System.in);
+//      static Node createTree()
+//      {
+//          Node root = null;
+//          System.out.println("enter the data");
+//          int data = sc.nextInt();
+//
+//          if(data==-1)
+//          {
+//              return null;
+//          }
+//          root = new Node(data);
+//          System.out.println("enter the left data"+data);
+//          root.left =createTree();
+//          System.out.println("enter the right data"+data);
+//          root.left =createTree();
+//          return root;
+//      }
+//      static int size(Node root)
+//      {
+//          if(root==null)
+//          {
+//              return 0;
+//          }
+//          return size(root.left)+ size(root.right)+1;
+//      }
+//
+//      public static void main(String[] args) {
+//
+//          Node root =createTree();
+//          int result = size(root);
+//          System.out.println("size of the tree"+result);
+//      }
+//}
+
+// maximum element in tree
+
+
+import java.util.*;
+
+  class Node{
+      Node left,right;
+      int data;
+
+      public Node(int data)
+      {
+          this.data=data;
+      }
+  }
+  public class Tree_ {
+      static Scanner sc = new Scanner(System.in);
+      static Node createTree()
+      {
+          Node root = null;
+          System.out.println("enter the data");
+          int data = sc.nextInt();
+
+          if(data==-1)
+          {
+              return null;
+          }
+          root = new Node(data);
+          System.out.println("enter the left data"+data);
+          root.left =createTree();
+          System.out.println("enter the right data"+data);
+          root.left =createTree();
+          return root;
+      }
+      static int size(Node root)
+      {
+          if(root==null)
+          {
+              return 0;
+          }
+          return size(root.left)+ size(root.right)+1;
+      }
+      static int maximum(Node root)
+      {
+          if(root==null)
+          {
+              return Integer.MIN_VALUE;
+
+          }
+          return Math.max(root.data,Math.max(maximum(root.left),maximum(root.right)));
+      }
+
+      public static void main(String[] args) {
+
+          Node root =createTree();
+          int result = maximum(root);
+          System.out.println("Maximum of the tree"+result);
+      }
+}
